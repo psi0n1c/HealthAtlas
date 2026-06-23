@@ -1,0 +1,136 @@
+:root{
+    --sidebar-color: #0F2450;
+    --subsection-title-color: #2563EB;
+    --text-color: #6D7B8F;
+    --logo-color: #4F8CFF;
+    --sidebar-grey: #B8C7E6;
+    --nav-links-text-color: #C7D7F7;
+    --nav-links-hover-color: rgba(255, 255, 255, 0.12);;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+#app {
+    display: flex;
+    min-height: 100vh;
+    background-color: #eef5ff;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.sidebar {
+    width: 280px;
+    min-height: 100vh;
+    background-color: var(--sidebar-color);
+    padding: 32px 24px;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.header-container {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    margin-bottom: 34px;
+}
+
+#logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+
+    background-color: var(--logo-color);
+    color: white;
+
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.title-container {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.title-container h2 {
+    color: white;
+    font-size: 1.6rem;
+    line-height: 1;
+}
+
+.title-container h4 {
+    color: var(--sidebar-grey);
+    font-size: 0.8rem;
+    font-weight: 400;
+}
+
+.nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.nav-links li {
+    height: 44px;
+    padding: 0 16px;
+
+    display: flex;
+    align-items: center;
+
+    color: var(--nav-links-text-color);
+    font-weight: 700;
+    font-size: 15px;
+
+    border-radius: 12px;
+    border: none;
+}
+
+.nav-links li:hover,
+.nav-links li.active {
+    background-color: var(--nav-links-hover-color);
+    color: white;
+    cursor: pointer;
+}
+
+.footer {
+    margin-top: auto;
+
+    background-color: rgba(255, 255, 255, 0.10);
+    max-height: 100px;
+    border-radius: 12px;
+
+    padding: 20px 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+.footer .heading {
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.footer .source {
+    color: var(--sidebar-grey);
+    font-size: 0.8rem;
+}
