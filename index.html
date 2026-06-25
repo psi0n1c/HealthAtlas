@@ -33,116 +33,158 @@
 
     <!-- MAIN CONTENT -->
     <div class="main-content" id="dashboard">
-      <div>
-        <p class="subsection-title">Global Overview</p>
-        <h1>Explore country data and statistics in one place</h1>
+      <div class="main-header">
+        <div class="header">
+          <p class="subsection-title">Global Overview</p>
+          <h1 class="header-title">Explore country data and disease statistics in one place</h1>
+        </div>
+        <div class="main-header-cards">
+          <div id="main-header-country" class="header-card header-title">
+            <p id="header-country-name">North Macedonia</p>
+          </div>
+          <div id="main-header-disease" class="header-card header-title">
+            <p>COVID-19</p>
+          </div>
+        </div>
       </div>
+
       <div class="cards-section">
 
-        <!-- COUNTRY SPOTLIGHT -->
-        <div class="card stats">
-          <p class="subsection-title">Country spotlight</p>
-          <div class="left">
-            <h2>North Macedonia</h2>
-            <p class="text">
-              <span id="continent"></span> - Capital: <span id="capital"></span> - Population: <span id="population"></span>
-            </p>
+        <div id="row1">
+
+          <!-- COUNTRY SPOTLIGHT -->
+          <div class="card stats country-spotlight">
+            <div class="left">
+              <p class="subsection-title">Country spotlight</p>
+              <h2 class="header-title country-name" id="country-spotlight-name">North Macedonia</h2>
+              <p class="text country-info">
+                <span id="continent"></span> • Capital: <span id="capital"></span> • Population: <span id="population"></span>
+              </p>
+            </div>
+            <div class="right">
+              <p class="risk" id="risk">Medium Risk</p>
+            </div>
           </div>
-          <div class="right risk"></div>
-        </div>
 
-        <!-- TOTAL CASES -->
-        <div class="card stats">
-          <p class="text">Total cases</p>
-          <h2 class="cases-count"></h2>
-          <p class="count-percent"><span id="total-percent">% this month</span></p>
-        </div>
-
-        <!-- DEATHS -->
-        <div class="card stats">
-          <p class="text">Total deaths</p>
-          <h2 class="deaths-count"></h2>
-          <p class="count-percent"><span id="deaths-percent">% this month</span></p>
-        </div>
-
-        <!-- RECOVERED -->
-        <div class="card stats">
-          <p class="text">Total recovered</p>
-          <h2 class="recovered-count"></h2>
-          <p class="count-percent"><span id="recovered-percent">% recovery</span></p>
-        </div>
-
-        <!-- MAP -->
-        <div class="card map">
-          <div class="map-header">
-            <p class="subsection-title">Regional health map</p>
-            <h4>Cases by region</h4>
+          <!-- TOTAL CASES -->
+          <div class="card stats small-card">
+            <p class="text">Total cases</p>
+            <h2 class="cases-count header-title" id="total-cases"></h2>
+            <p class="count-percent"><span id="total-percent">% this month</span></p>
           </div>
-          <div class="map-container">
-            <div id="map"></div>
+
+          <!-- DEATHS -->
+          <div class="card stats small-card">
+            <p class="text">Total deaths</p>
+            <h2 class="deaths-count header-title" id="total-deaths"></h2>
+            <p class="count-percent"><span id="deaths-percent">% this month</span></p>
           </div>
+
+          <!-- RECOVERED -->
+          <div class="card stats small-card">
+            <p class="text">Total recovered</p>
+            <h2 class="recovered-count header-title" id="total-recovered"></h2>
+            <p class="count-percent"><span id="recovered-percent">% recovery</span></p>
+          </div>
+
+        <!-- end of row 1 -->
         </div>
 
-        <!-- CHART -->
-        <div class="card chart">
-          <div class="chart-header">
+        <div id="row2">
+
+          <!-- MAP -->
+          <div class="card map">
+            <div class="map-header">
+              <p class="subsection-title">Regional map</p>
+              <h4 class="header-title">Map of region</h4>
+            </div>
+            <div class="map-container">
+              <iframe
+                id="country-map"
+                src="https://www.google.com/maps?q=North%20Macedonia&output=embed"
+                width="100%"
+                height="300"
+                style="border:0;"
+                loading="lazy">
+              </iframe>
+            </div>
+          </div>
+
+          <!-- CHART -->
+          <div class="card chart">
+            <div class="chart-header">
+              <div>
+                <p class="subsection-title">Disease Timeline</p>
+                <h4 class="header-title">Yearly Trend</h4>
+              </div>
+              <div class="text caps-bold">
+                Last 6 years
+              </div>
+            </div>
+            <div class="chart-container">
+              <canvas id="line-chart"></canvas>
+            </div>
+          </div>
+          
+        <!-- end of row 2 -->
+        </div>
+
+        <div id="row3">
+          
+          <!-- COUNTRIES -->
+          <div class="card countries">
+            <div class="countries-header">
+              <div>
+                <p class="subsection-title">top countries</p>
+                <h4 class="header-title">Top 10 countries by cases</h4>
+              </div>
+              <button>Compare</button>
+            </div>
+            <div class="countries-container">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Country</th>
+                    <th>Cases</th>
+                    <th>Risk</th>
+                  </tr>
+                </thead>
+                <tbody id="countries-table"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- FACTS -->
+          <div class="card facts">
             <div>
-              <p class="subsection-title">Disease Timeline</p>
-              <h4>Yearly Trend</h4>
+              <p class="subsection-title">Country facts</p>
+              <h4 class="header-title">Quick profile</h4>
             </div>
-            <div class="text">
-              Last 6 years
+            <div class="fact-lists-container">
+              <ul>
+                <li class="text">Currency</li>
+                <li class="text">Language</li>
+                <li class="text">Continent</li>
+                <li class="text">Timezone</li>
+              </ul>
+              <ul>
+                <li class="text-dark" id="currency">Currency</li>
+                <li class="text-dark" id="language">Language</li>
+                <li class="text-dark" id="continent">Continent</li>
+                <li class="text-dark" id="timezone">Timezone</li>
+              </ul>
             </div>
           </div>
-          <div class="chart-container">
-            <canvas id="line-chart"></canvas>
-        </div>
 
-        <!-- COUNTRIES -->
-        <div class="card countries">
-          <div class="countries-header">
-            <div>
-              <p class="subsection-title">top countries</p>
-              <h4>Top 10 countries by cases</h4>
-            </div>
-            <button>Compare</button>
-          </div>
-          <div class="countries-container">
-            <table>
-              <thead>
-                <tr>
-                  <th>Country</th>
-                  <th>Cases</th>
-                  <th>Risk</th>
-                </tr>
-              </thead>
-              <tbody id="countries-table"></tbody>
-            </table>
+        <!-- end of row 3 -->
         </div>
-
-        <!-- FACTS -->
-        <div class="card facts">
-          <div>
-            <p class="subsection-title">Country facts</p>
-            <h4>Quick profile</h4>
-          </div>
-          <div class="fact-lists-container">
-            <ul>
-              <li class="text">Currency</li>
-              <li class="text">Language</li>
-              <li class="text">Continent</li>
-              <li class="text">Timezone</li>
-            </ul>
-            <ul>
-              <li class="text-dark" id="currency">Currency</li>
-              <li class="text-dark" id="language">Language</li>
-              <li class="text-dark" id="continent">Continent</li>
-              <li class="text-dark" id="timezone">Timezone</li>
-            </ul>
-          </div>
-        </div>
+        
+      <!-- end of cards section -->
       </div>
+
+    <!-- end of main content -->
     </div>
+
   </div>
 </body>
 </html>
