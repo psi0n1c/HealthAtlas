@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>HealthAtlas Dashboard</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="script.js"></script>
 </head>
 <body>
   <div id="app">
@@ -20,15 +21,16 @@
       </div>
 
       <ul class="nav-links">
-        <li id="dashboard-link" class="active">Dashboard</li>
-        <li id="countries-link">Countries</li>
-        <li id="compare-link">Compare</li>
+        <li id="dashboard-link" class="active" onclick="togglePage('dashboard')">Dashboard</li>
+        <li id="compare-link" onclick="togglePage('compare')">Compare</li>
+        <li id="information-link" onclick="togglePage('moreInfo')">More Information</li>
       </ul>
 
       <div class="footer">
         <p class="heading">COVID-19 dashboard</p>
         <p class="source">Global statistics updated from <a href="https://disease.sh" target="_blank">disease.sh</a></p>
-        <p class="source">Note that the latest date for information is <span class="important">March 9th 2023</span></p>
+        <p class="source">For more information on the website and statistics, check out the More Information section</p>
+        <!-- <p class="source">Note that the latest date for information is <span class="important">March 9th 2023</span></p> -->
       </div>
     </aside>
 
@@ -41,7 +43,8 @@
         </div>
         <div class="main-header-cards">
           <div id="main-header-country" class="header-card header-title">
-            <p id="header-country-name">North Macedonia</p>
+            <select id="country-dropdown">
+            </select>
           </div>
           <div id="main-header-disease" class="header-card header-title">
             <p>COVID-19</p>
@@ -63,7 +66,7 @@
               </p>
             </div>
             <div class="right">
-              <p class="risk" id="risk">Medium Risk</p>
+              <p class="impact" id="impact">Medium impact</p>
             </div>
           </div>
 
@@ -71,21 +74,18 @@
           <div class="card stats small-card">
             <p class="text">Total cases</p>
             <h2 class="cases-count header-title" id="total-cases"></h2>
-            <p class="count-percent"><span id="total-percent">% this month</span></p>
           </div>
 
           <!-- DEATHS -->
           <div class="card stats small-card">
             <p class="text">Total deaths</p>
             <h2 class="deaths-count header-title" id="total-deaths"></h2>
-            <p class="count-percent"><span id="deaths-percent">% this month</span></p>
           </div>
 
           <!-- RECOVERED -->
           <div class="card stats small-card">
             <p class="text">Total recovered</p>
             <h2 class="recovered-count header-title" id="total-recovered"></h2>
-            <p class="count-percent"><span id="recovered-percent">% recovery</span></p>
           </div>
 
         <!-- end of row 1 -->
@@ -137,7 +137,7 @@
             <div class="countries-header">
               <div>
                 <p class="subsection-title">top countries</p>
-                <h4 class="header-title">Top 10 countries by cases</h4>
+                <h4 class="header-title">Top 4 countries by cases</h4>
               </div>
               <button>Compare</button>
             </div>
@@ -147,7 +147,7 @@
                   <tr>
                     <th>Country</th>
                     <th>Cases</th>
-                    <th>Risk</th>
+                    <th>Impact</th>
                   </tr>
                 </thead>
                 <tbody id="countries-table"></tbody>
@@ -161,20 +161,31 @@
               <p class="subsection-title">Country facts</p>
               <h4 class="header-title">Quick profile</h4>
             </div>
-            <div class="fact-lists-container">
-              <ul>
-                <li class="text">Currency</li>
-                <li class="text">Language</li>
-                <li class="text">Continent</li>
-                <li class="text">Timezone</li>
-              </ul>
-              <ul>
-                <li class="text-dark" id="currency">Currency</li>
-                <li class="text-dark" id="language">Language</li>
-                <li class="text-dark" id="continent">Continent</li>
-                <li class="text-dark" id="timezone">Timezone</li>
-              </ul>
+
+            <div class="facts-list">
+
+              <div class="fact-row">
+                <span class="text">Currency</span>
+                <span class="text-dark" id="currency">MKD</span>
+              </div>
+
+              <div class="fact-row">
+                <span class="text">Language</span>
+                <span class="text-dark" id="language">Macedonian</span>
+              </div>
+
+              <div class="fact-row">
+                <span class="text">Continent</span>
+                <span class="text-dark" id="continent-fact">Europe</span>
+              </div>
+
+              <div class="fact-row">
+                <span class="text">Timezone</span>
+                <span class="text-dark" id="timezone">UTC+01:00</span>
+              </div>
+
             </div>
+
           </div>
 
         <!-- end of row 3 -->
@@ -184,6 +195,21 @@
       </div>
 
     <!-- end of main content -->
+    </div>
+
+    <!-- --------------------------------------- -->
+    <!-- MORE INFORMATION -->
+    <div class="more-info hidden" id="moreInfo">
+
+
+    <!-- end of More Information -->
+    </div>
+
+    <!-- ------------------------------------------ -->
+    <div class="compare hidden" id="compare">
+
+
+    <!-- end of Compare -->
     </div>
 
   </div>

@@ -9,8 +9,14 @@
     --card-border-color: #DCE7F5;
     --header-color: rgba(16, 32, 51, 1);
 
-    --high-risk-text: rgba(194, 65, 12, 1);
-    --high-risk-bg: rgba(255, 247, 237, 1);
+    --high-impact-text: rgba(185, 28, 28, 1);
+    --high-impact-bg: rgba(254, 242, 242, 1);
+    --medium-impact-text: rgba(30, 64, 175, 1);
+    --medium-impact-bg: rgba(239, 246, 255, 1);
+    --low-impact-text: rgba(21, 128, 61, 1);
+    --low-impact-bg: rgba(240, 253, 244, 1);
+
+    --facts-list-border: rgba(220, 231, 245, 1);
 
     --subsection-title-font-size: 0.875rem;
 
@@ -24,6 +30,10 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Arial', sans-serif;
+}
+
+.hidden {
+    display: none;
 }
 
 a{
@@ -62,7 +72,7 @@ ul {
     flex-direction: column;
 }
 
-.main-content {
+.main-content, .more-info {
     margin-left: 280px;
     width: calc(100% - 280px);
     padding: 32px;
@@ -209,10 +219,6 @@ ul {
     align-items: center;
 }
 
-#main-header-country {
-    width: 215px;
-}
-
 .header h1 {
     font-size: 2.2rem;
     font-weight: bold;
@@ -241,6 +247,12 @@ ul {
     gap: 16px;
 }
 
+.left {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
 .country-spotlight .left {
     flex: 1;
     max-width: calc(100% - 95px - 16px);
@@ -258,9 +270,14 @@ ul {
     align-items: center;
 }
 
-.risk {
+.impact {
     font-weight: bold;
     text-align: center;
+    color: var(--high-risk-text);
+    background-color: var(--high-risk-bg);
+
+    padding: 15px;
+    border-radius: 50%;
 }
 
 .small-card {
@@ -317,7 +334,7 @@ ul {
 }
 
 .country-name {
-    font-size: 2rem;
+    font-size: 2.2rem;
     font-weight: bold;
 }
 
@@ -342,4 +359,38 @@ h4 {
 .caps-bold {
     text-transform: uppercase;
     font-weight: bold;
+}
+
+.facts-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.fact-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 18px 0;
+    border-bottom: 1px solid var(--facts-list-border);
+}
+
+.fact-row .text {
+    font-size: 1.1rem;
+}
+
+.fact-row .text-dark {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--header-color);
+}
+
+#main-header-country {
+    width: 215px;
+}
+
+.deaths-count, .cases-count, .recovered-count {
+    font-size: 3rem;
+
+    margin: 20px 0;
 }
