@@ -394,3 +394,168 @@ h4 {
 
     margin: 20px 0;
 }
+
+@media (max-width: 1280px) {
+    .sidebar {
+        width: 240px;
+    }
+
+    .main-content, .more-info {
+        margin-left: 240px;
+        width: calc(100% - 240px);
+        padding: 24px;
+    }
+
+    .cards-section {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .country-spotlight,
+    .map,
+    .chart,
+    .countries,
+    .facts {
+        grid-column: span 2;
+    }
+
+    .small-card {
+        min-height: 160px;
+    }
+}
+
+@media (max-width: 900px) {
+    #app {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        position: static;
+        width: 100%;
+        min-height: auto;
+    }
+
+    .main-content, .more-info {
+        margin-left: 0;
+        width: 100%;
+        padding: 20px;
+    }
+
+    .main-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .main-header-cards {
+        flex-wrap: wrap;
+    }
+
+    .header h1 {
+        font-size: 1.8rem;
+        max-width: 100%;
+    }
+
+    .cards-section {
+        grid-template-columns: 1fr;
+    }
+
+    .country-spotlight,
+    .small-card,
+    .map,
+    .chart,
+    .countries,
+    .facts {
+        grid-column: span 1;
+    }
+
+    .country-spotlight {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .country-spotlight .right {
+        max-width: none;
+        width: auto;
+        align-self: flex-start;
+    }
+
+    .impact {
+        border-radius: 999px;
+    }
+
+    .deaths-count, .cases-count, .recovered-count {
+        font-size: 2.4rem;
+        margin: 12px 0 0;
+    }
+
+    .countries-container {
+        overflow-x: auto;
+    }
+
+    table {
+        min-width: 320px;
+    }
+}
+
+@media (max-width: 640px) {
+    .sidebar {
+        padding: 24px 18px;
+    }
+
+    .header-container {
+        margin-bottom: 24px;
+    }
+
+    .title-container h2 {
+        font-size: 1.35rem;
+    }
+
+    .nav-links li {
+        height: 40px;
+        font-size: 14px;
+    }
+
+    .footer {
+        padding: 20px 10px;
+    }
+
+    .header-card {
+        width: 100%;
+        margin: 0;
+    }
+
+    #main-header-country {
+        width: 100%;
+    }
+
+    .card {
+        padding: 18px;
+        border-radius: 20px;
+    }
+
+    .country-name {
+        font-size: 1.7rem;
+    }
+
+    .text,
+    .fact-row .text,
+    .fact-row .text-dark {
+        font-size: 0.95rem;
+    }
+
+    .chart-header,
+    .countries-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .map-container,
+    .chart-container {
+        height: 220px;
+    }
+
+    .fact-row {
+        padding: 14px 0;
+    }
+}
